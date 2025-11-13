@@ -1,0 +1,130 @@
+.hero {
+  min-height: 180svh;
+  scroll-margin-top: calc(var(--nav-height) + 1.5rem);
+  margin-bottom: -4rem;
+}
+
+.hero-pin {
+  position: sticky;
+  top: 0;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding-inline: clamp(1rem, 4vw, 2rem);
+}
+
+.hero-inner {
+  display: grid;
+  gap: 1rem;
+  width: min(100%, 64rem);
+  margin-inline: auto;
+  justify-items: center;
+  text-align: center;
+  transform: translateY(-10vh);
+}
+
+.hero-title {
+  font-size: clamp(2rem, 4vw + 1rem, 4rem);
+  line-height: 1.1;
+  margin: 0;
+  display: grid;
+}
+
+.hero-title .fade {
+  grid-area: 1 / 1;
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 240ms ease,
+    transform 240ms ease;
+}
+
+.hero-title .fade.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+.hero-title .fade.out {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+.hero-subtitle {
+  opacity: 0;
+  max-width: 60ch;
+  margin-top: 0.75rem;
+  transform: translateY(6px);
+  transition:
+    opacity 260ms ease 140ms,
+    transform 260ms ease 140ms;
+}
+
+.hero.is-expanded .hero-subtitle {
+  opacity: 0.85;
+  transform: translateY(0);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+.hero-arrow {
+  margin-top: -5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(241, 237, 234, 0.9);
+  background: transparent;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 999px;
+  cursor: pointer;
+  pointer-events: auto;
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease;
+  animation: arrowBlink 1400ms ease-in-out infinite;
+}
+
+.hero-arrow:focus-visible {
+  outline: 2px solid rgba(241, 237, 234, 0.9);
+  outline-offset: 2px;
+}
+
+.hero.is-expanded .hero-arrow {
+  opacity: 0;
+  transform: translateY(-6px);
+  animation-play-state: paused;
+}
+
+@keyframes arrowBlink {
+  0% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-arrow {
+    animation: none;
+    opacity: 0.9;
+    transform: none;
+  }
+  .hero.is-expanded .hero-arrow {
+    opacity: 0;
+  }
+}

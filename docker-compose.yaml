@@ -1,0 +1,17 @@
+services:
+  web-prod:
+    build:
+      context: .
+      target: prod
+    ports:
+      - "42318:3001"
+    restart: unless-stopped
+    profiles: ["prod"]
+  web-dev:
+    build:
+      context: .
+      target: dev
+    ports:
+      - "42319:3001"
+    restart: unless-stopped
+    profiles: ["dev"]
