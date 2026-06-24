@@ -2,7 +2,6 @@
 
 [![Static Status](https://img.shields.io/badge/status-check%20dashboard-blue)](https://stats.uptimerobot.com/CANp4S4fvq)
 
-26-6-8: offline until further notice
 Live site: [kedo.dev](https://kedo.dev)
 
 Dev site (permission needed): [dev.kedo.dev](https://dev.kedo.dev)
